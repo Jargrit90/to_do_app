@@ -4,22 +4,28 @@ import {variables} from '../variables/variables';
 
 function mainpageReducer(state = variables, action){
     switch (action.type){
-        case 'toggleInfo': {
+        case 'changeInput': {
             return {
                 ...state,
-                infoStatus: action.payload
+                inputDataBoolean: !state.inputDataBoolean
             }
         }
-        case 'setActive': {
+        case 'add_task': {
             return {
                 ...state,
-                [action.payload]: true
+                tasks_array: action.payload
             }
         }
-        case 'weapon_achievement': {
+        case 'task_input_title': {
             return {
                 ...state,
-                [action.payload[0][action.payload[1]]]: true
+                task_input_title: action.payload
+            }
+        }
+        case 'clear_input_title': {
+            return {
+                ...state,
+                task_input_title: ""
             }
         }
         default:

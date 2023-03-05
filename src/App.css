@@ -1,1 +1,17 @@
-
+:root {
+	--blue: rgb(8, 128, 189);
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.app_container {
+    min-height: 100vh;
+    width: calc(365 * 80px);
+}
+.flexCC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

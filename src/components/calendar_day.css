@@ -1,0 +1,15 @@
+.calendar_day {
+    width: 80px;
+    display: inline-block;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: solid 1px gray;
+}
+.day_date {
+    width: 80px;
+    text-align: center;
+    height: 20px;
+    box-sizing: border-box;
+    border-bottom: solid 1px;
+    font-size: 14px;
+}

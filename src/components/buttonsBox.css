@@ -1,0 +1,37 @@
+.buttons_box {
+    height: 200px;
+    width: 100%;
+}
+.buttons {
+    position: sticky;
+    height: 100%;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    background-color: var(--blue);
+}
+.main_btn_box {
+    width: 100%;
+    height: 50%;
+}
+.btn_title{
+    width: 100%;
+    text-align: center;
+    color: lightgray;
+}
+.main_btn {
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+.main_btn:hover {
+    text-decoration: underline;
+    color: white;
+    text-shadow: 2px 2px 4px rgb(8, 78, 99);
+}
+.main_btn div {
+    width: auto;
+    margin: 0px 10px;
+    border-radius: 10px;
+    color: white;
+}
