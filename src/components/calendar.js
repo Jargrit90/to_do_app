@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Calendar_day from "./calendar_day";
+import Task from "./task";
 
 import * as f from './functions';
 
@@ -30,6 +31,7 @@ function scrollPage(){
 }
 function Calendar(){
     const dispatch = useDispatch();
+    let mainpage = useSelector(state => state.mainpage);
     useEffect(()=>{
         let month_arr = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
         let month_length = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -46,10 +48,24 @@ function Calendar(){
         }
         scrollPage();
     },[]);
+    let index = 0;
+    /*title: task_title[0].value,
+    date_1: task_date_1[0].value,
+    date_2: task_date_2[0].value,
+    desc: task_desc[0].value,
+    category: task_category.value,
+    left: left_position,
+    top: top_position,
+    width: task_width,
+    height: task_height*/
+    let tasks = mainpage.tasks_array.map(el => <Task date_2={el.date_2} date_1={el.date_1} top={el.top} left={el.left} category={el.category} desc={el.desc} title={el.title} height={el.height} width={el.width} id={index} key={index++}/>);
     return (
         <>
             <div className="calendar_box">
                 {arr}
+                <div className="tasks_container">
+                    {tasks}
+                </div>
             </div>
         </>
     )

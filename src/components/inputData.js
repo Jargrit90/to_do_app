@@ -50,9 +50,9 @@ function InputData(){
             date_2: task_date_2[0].value,
             desc: task_desc[0].value,
             category: task_category.value,
-            left: left_position,
+            left: left_position * 80,
             top: top_position,
-            width: task_width,
+            width: task_width * 80,
             height: task_height
         }
         

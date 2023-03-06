@@ -1,0 +1,7 @@
+.task_box {
+    position: absolute;
+    background-color: lightsteelblue;
+    color: black;
+    box-sizing: border-box;
+    border: solid 2px white;
+}
