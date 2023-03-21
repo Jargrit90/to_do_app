@@ -19,6 +19,7 @@ function InputData(){
         let task_date_2 = f.g(".date_2_input_value");
         let task_desc = f.g(".task_desc");
         let task_category = f.g("#task_category");
+        
         let first_day = new Date('2023/01/01');
         let task_start = new Date(task_date_1[0].value);
         let task_end = new Date(task_date_2[0].value);
@@ -26,6 +27,8 @@ function InputData(){
         let utc_first_day = Date.UTC(first_day.getFullYear(), first_day.getMonth(), first_day.getDate());
         let utc_task_start = Date.UTC(task_start.getFullYear(), task_start.getMonth(), task_start.getDate());
         let utc_task_end = Date.UTC(task_end.getFullYear(), task_end.getMonth(), task_end.getDate());
+        let diff = Math.floor((utc_task_start - utc_task_end)/day_length);
+        if(task_title[0].value !== "" && task_date_1[0].value !== "" && task_date_2[0].value !== "" && task_desc[0].value !== "" && diff <= 0){
         //let diff = Math.floor((utc_today - utc_first_day)/day_length);
         let left_position = Math.floor((utc_task_start - utc_first_day)/day_length);
         let task_width = Math.floor((utc_task_end - utc_task_start)/day_length);
@@ -44,6 +47,29 @@ function InputData(){
                 i = 0;
             }
         }
+        let backgroundColor;
+        let textColor;
+        switch(task_category.value) {
+            case "praca":
+                backgroundColor = "rgb(15, 23, 128)";
+                textColor = "rgb(255,255,255)";
+                break;
+            case "dom":
+                backgroundColor = "rgb(2, 122, 96)";
+                textColor = "rgb(255,255,255)";
+                break;
+            case "czas_wolny":
+                backgroundColor = "rgb(138, 150, 5)";
+                textColor = "rgb(46, 46, 45)";
+                break;
+            case "inne":
+                backgroundColor = "rgb(150, 53, 5)";
+                textColor = "rgb(255,255,255)";
+                break;
+            default:
+              return null;
+          }
+          console.log(Math.sqrt((task_height*task_height)/2));
         let obj = {
             title: task_title[0].value,
             date_1: task_date_1[0].value,
@@ -53,10 +79,20 @@ function InputData(){
             left: left_position * 80,
             top: top_position,
             width: task_width * 80,
-            height: task_height
+            info_width: (task_width * 80) - Math.sqrt((task_height*task_height)),
+            square_size: Math.sqrt((task_height*task_height)/2) - 2,
+            height: task_height,
+            background_color: backgroundColor,
+            text_color: textColor,
+            ended: false
         }
         
         task_arr.push(obj); 
+        }
+        else {
+            alert("Dane zostały wprowadzone nieprawidłowo");
+            dispatch({type: 'changeInput'});
+        }
     }
     let changeTitle = ()=>{
         let ttiv = f.g(".task_title_input_value");
@@ -69,20 +105,20 @@ function InputData(){
             <div className="task_title_box">
                 <div className="part_title">Podaj tytuł zadania:</div>
                 <div className="input_title">
-                    <input type="text" className="task_title_input_value" onChange={()=>changeTitle()}/>
+                    <input type="text" maxLength="20" className="task_title_input_value" onChange={()=>changeTitle()}/>
                 </div>
             </div>
             <div className="task_dat_box">
                 <div className="date">
                     <div className="part_title">Początek:</div>
                     <div className="input_date">
-                        <input type="date" className="date_1_input_value"/>
+                        <input type="date" className="date_1_input_value" required/>
                     </div>
                 </div>
                 <div className="date">
                     <div className="part_title">Koniec:</div>
                     <div className="input_date">
-                        <input type="date" className="date_2_input_value"/>
+                        <input type="date" className="date_2_input_value" required />
                     </div>
                 </div>
             </div>

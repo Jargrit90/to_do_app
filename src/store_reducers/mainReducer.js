@@ -28,6 +28,18 @@ function mainpageReducer(state = variables, action){
                 task_input_title: ""
             }
         }
+        case 'task_info': {
+            return {
+                ...state,
+                task_info: !state.task_info
+            }
+        }
+        case 'task_index': {
+            return {
+                ...state,
+                task_index: action.payload
+            }
+        }
         default:
         return state
     }

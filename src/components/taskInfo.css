@@ -1,0 +1,47 @@
+.task_info {
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+.task_info_data_box {
+    width: 600px;
+    height: auto;
+    position: absolute;
+    background-color: white;
+    border: solid 2px var(--blue);
+    color: rgb(27, 27, 27);
+    font-size: 18px;
+}
+.task_info_title {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.task_info_date_box, .task_info_category, .task_info_desc_box {
+    margin-top: 20px;
+}
+.task_info_date_box_title, .task_info_date {
+    width: 100%;
+    text-align: center;
+}
+.task_info_desc {
+    height: 200px;
+    width: 95%;
+    overflow-y: auto;
+    padding: 5px 10px;
+    box-shadow: -1px 0px 2px gray;
+}
+.task_info_button {
+    width: 150px;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}

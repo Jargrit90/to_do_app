@@ -49,16 +49,7 @@ function Calendar(){
         scrollPage();
     },[]);
     let index = 0;
-    /*title: task_title[0].value,
-    date_1: task_date_1[0].value,
-    date_2: task_date_2[0].value,
-    desc: task_desc[0].value,
-    category: task_category.value,
-    left: left_position,
-    top: top_position,
-    width: task_width,
-    height: task_height*/
-    let tasks = mainpage.tasks_array.map(el => <Task date_2={el.date_2} date_1={el.date_1} top={el.top} left={el.left} category={el.category} desc={el.desc} title={el.title} height={el.height} width={el.width} id={index} key={index++}/>);
+    let tasks = mainpage.tasks_array.map(el => <Task ended={el.ended} square_size={el.square_size} info_width={el.info_width} bg_color={el.background_color} color={el.text_color} date_2={el.date_2} date_1={el.date_1} top={el.top} left={el.left} category={el.category} desc={el.desc} title={el.title} height={el.height} width={el.width} id={index} key={index++}/>);
     return (
         <>
             <div className="calendar_box">
