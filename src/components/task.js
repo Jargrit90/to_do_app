@@ -38,7 +38,7 @@ function Task(props){
     return (
         <>
             <div className={"task_box flexCC " + props.category} style={style} onClick={()=>{
-                dispatch({type: 'task_info'});
+                dispatch({type: 'toggleBoolean', payload: 'task_info'});
                 dispatch({type: 'task_index', payload: props.id});
             }}>
                 <div className="task_title flexCC">{props.title}{mainpage.tasks_array[props.id].ended ? <i className="fa-solid fa-star"></i>: null}</div>

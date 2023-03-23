@@ -36,7 +36,7 @@ function ButtonsBox(){
             <div className="buttons flexCC">
                 <div className="main_btn_box flexCC">
                     <div className="btn_title"><div>Menu główne</div></div>
-                    <div className="main_btn flexCC"><div onClick={()=>dispatch({type: 'changeInput'})}>Nowe zadanie</div></div>
+                    <div className="main_btn flexCC"><div onClick={()=>dispatch({type: 'toggleBoolean', payload: 'inputDataBoolean'})}>Nowe zadanie</div></div>
                     <div className="main_btn flexCC"><div onClick={()=>{
                         let tasks_copy = [...mainpage.tasks_array];
                         let json = JSON.stringify(tasks_copy);
@@ -47,7 +47,7 @@ function ButtonsBox(){
                         let tasks_copy = JSON.parse(json);
                         console.log(tasks_copy);
                     }}><div>Wczytaj dane</div></div>
-                    <div className="main_btn flexCC"><div>Statystyki</div></div>
+                    <div className="main_btn flexCC"><div onClick={()=>dispatch({type: 'toggleBoolean', payload: 'statistics'})}>Statystyki</div></div>
                 </div>
                 <div className="main_btn_box flexCC">
                     <div className="btn_title"><div>Filtry</div></div>

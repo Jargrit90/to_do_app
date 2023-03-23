@@ -1,9 +1,15 @@
-
-.input_box, .task_data {
+.input_box {
 	position: fixed;
-	left: calc(50% - 300px);
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+}
+.input_box_data, .task_data {
+	position: fixed;
 	width: 600px;
-	max-width: 80%;
+	max-width: 90vw;
 	height: auto;
 	border: solid 1px lightgray;
     z-index:3;
@@ -34,7 +40,8 @@
 }
 .close {
 	position: absolute;
-	right: 5px;
+	right: 20px;
+	font-size: 24px;
 	cursor: pointer;
 }
 .date {

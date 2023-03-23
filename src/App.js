@@ -7,6 +7,7 @@ import ButtonsBox from './components/buttonsBox';
 import InputData from './components/inputData';
 import Calendar from './components/calendar';
 import TaskInfo from './components/taskInfo';
+import Statystyki from './components/statistics';
 function App() {
   const dispatch = useDispatch();
   let mainpage = useSelector(state => state.mainpage);
@@ -31,6 +32,9 @@ function App() {
             }
             {
                 mainpage.task_info ? <TaskInfo /> : null
+            }
+            {
+                mainpage.statistics ? <Statystyki /> : null
             }
         </div>
     </div>

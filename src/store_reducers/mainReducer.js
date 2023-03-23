@@ -4,12 +4,6 @@ import {variables} from '../variables/variables';
 
 function mainpageReducer(state = variables, action){
     switch (action.type){
-        case 'changeInput': {
-            return {
-                ...state,
-                inputDataBoolean: !state.inputDataBoolean
-            }
-        }
         case 'add_task': {
             return {
                 ...state,
@@ -28,16 +22,22 @@ function mainpageReducer(state = variables, action){
                 task_input_title: ""
             }
         }
-        case 'task_info': {
-            return {
-                ...state,
-                task_info: !state.task_info
-            }
-        }
         case 'task_index': {
             return {
                 ...state,
                 task_index: action.payload
+            }
+        }
+        case 'toggleBoolean': {
+            return {
+                ...state,
+                [action.payload]: !state[action.payload]
+            }
+        }
+        case 'statistics': {
+            return {
+                ...state,
+                statistics_data: action.payload
             }
         }
         default:

@@ -91,7 +91,7 @@ function InputData(){
         }
         else {
             alert("Dane zostały wprowadzone nieprawidłowo");
-            dispatch({type: 'changeInput'});
+            dispatch({type: 'toggleBoolean', payload: 'inputDataBoolean'});
         }
     }
     let changeTitle = ()=>{
@@ -100,8 +100,9 @@ function InputData(){
         dispatch({type: 'task_input_title', payload: ttiv_value});
     }
     return (
-        <div className="input_box">
-            <div className="task_bar flexCC"><div className="task_bar_value flexCC">{mainpage.task_input_title !== "" ? mainpage.task_input_title : "Tytuł"}<div className="close" onClick={()=>dispatch({type: 'changeInput'})}>X</div></div></div>
+        <div className="input_box flexCC">
+            <div className="input_box_data">
+            <div className="task_bar flexCC"><div className="task_bar_value flexCC">{mainpage.task_input_title !== "" ? mainpage.task_input_title : "Tytuł"}<div className="close" onClick={()=>dispatch({type: 'toggleBoolean', payload: 'inputDataBoolean'})}>X</div></div></div>
             <div className="task_title_box">
                 <div className="part_title">Podaj tytuł zadania:</div>
                 <div className="input_title">
@@ -142,7 +143,8 @@ function InputData(){
                 </div>
             </div>
             <div className="task_submit flexCC">
-                <div className="submit_btn flexCC" onClick={()=>{store_task(); dispatch({type: 'add_task', payload: task_arr}); dispatch({type: 'changeInput'}); dispatch({type: 'clear_input_title'}); }}>Zapisz</div>
+                <div className="submit_btn flexCC" onClick={()=>{store_task(); dispatch({type: 'add_task', payload: task_arr}); dispatch({type: 'toggleBoolean', payload: 'inputDataBoolean'}); dispatch({type: 'clear_input_title'}); }}>Zapisz</div>
+            </div>
             </div>
         </div>
     )

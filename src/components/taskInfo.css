@@ -8,6 +8,7 @@
 }
 .task_info_data_box {
     width: 600px;
+    max-width: 90vw;
     height: auto;
     position: absolute;
     background-color: white;

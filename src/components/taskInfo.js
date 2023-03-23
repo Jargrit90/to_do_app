@@ -33,7 +33,7 @@ function TaskInfo(){
         <>
             <div className="task_info flexCC">
                 <div className="task_info_data_box">
-                    <div className="close" onClick={()=>dispatch({type: 'task_info'})}>X</div>
+                    <div className="close" onClick={()=>dispatch({type: 'toggleBoolean', payload: 'task_info'})}>X</div>
                     <div className="task_info_title">{mainpage.tasks_array[mainpage.task_index].title}</div>
                     <div className="task_info_date_box flexCC">
                         <div className="task_info_date_box_title"><b>Termin:</b></div>
