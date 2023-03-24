@@ -15,18 +15,18 @@ function TaskInfo(){
         if(option === "end"){
             tasks_copy[num].ended = true;
             dispatch({type: 'add_task', payload: tasks_copy});
-            dispatch({type: 'task_info'});
+            dispatch({type: 'toggleBoolean', payload: 'task_info'});
         }
         if(option === "delete"){
             tasks_copy.splice(num, 1);
             dispatch({type: 'add_task', payload: tasks_copy});
-            dispatch({type: 'task_info'});
+            dispatch({type: 'toggleBoolean', payload: 'task_info'});
         }
         if(option === "edit"){
             tasks_copy.splice(num, 1);
             dispatch({type: 'add_task', payload: tasks_copy});
-            dispatch({type: 'task_info'});
-            dispatch({type: 'changeInput'});
+            dispatch({type: 'toggleBoolean', payload: 'task_info'});
+            dispatch({type: 'toggleBoolean', payload: 'inputDataBoolean'});
         }
     }
     return (
